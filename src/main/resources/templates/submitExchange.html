@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>ProximaX Escrow Service</title>
+        <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+    </head>
+    <body>
+        <section>
+            <div id="container_demo" >
+                <div id="wrapper">
+                    <div id="login" class="animate form">
+                        <form  >
+                            <h1>ProximaX Escrow Service</h1>
+                            <label > Please follow instructions below: </label>
+                            <label > </label>
+                            <p style="text-align:center;"><img id = "qrimage" class="info" th:attr="src=@{${qrcodeImage}}"></img> </p>
+                            <h1></h1>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </body>
+</html>
