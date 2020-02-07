@@ -82,6 +82,8 @@ public class TransactionHelper {
             ids = "ethereum";
         } else if (token.equalsIgnoreCase("btc")) {
             ids = "bitcoin";
+        } else if (token.equalsIgnoreCase("usdt-eth") || token.equalsIgnoreCase("usdt-omni")) {
+            ids = "tether";
         }
         if (ids == null) {
             return 0;

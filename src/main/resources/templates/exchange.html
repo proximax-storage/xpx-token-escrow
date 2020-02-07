@@ -1,57 +1,59 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-    <head>
-        <meta charset="UTF-8" />
-        <title>ProximaX Escrow Service</title>
-        <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
-    </head>
-    <body>
-        <section>
-            <div id="container_demo" >
-                <div id="wrapper">
-                    <div id="login" class="animate form">
-                        <form  action="submitExchange" method="POST" autocomplete="off">
-                            <h1>BTC/ETH to XPX</h1>
+<head>
+    <meta charset="UTF-8" />
+    <title>ProximaX Escrow Service</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+<section>
+    <div id="container_demo" >
+        <div id="wrapper">
+            <div id="login" class="animate form">
+                <form  action="submitExchange" method="POST" autocomplete="off">
+                    <h1>BTC/ETH to XPX</h1>
 
-                            <p>
-                                <label for="fullName" class="fullName" data-icon="u" > Full Name </label>
-                                <input id="fullName" name="fullName" required="required" type="text" placeholder="yourusername"/>
-                            </p>
-                            <p>
-                                <label for="email" class="email" data-icon="u" > Email </label>
-                                <input id="email" name="email" required="required" type="text" placeholder="youremail@mail.com"/>
-                            </p>
-                            <p>
-                                <label for="tokenName" class="tokenName"> Token </label>
-                                <select name="tokenName">
-                                    <option value="eth" selected>ETH</option>
-                                    <option value="btc">BTC</option>                                    
-                                </select>
-                            </p>                            
-                            <p>
-                                <label for="xpxAmount" class="xpxAmount"> XPX Amount     </label>
-                                <input id="xpxAmount" name="xpxAmount" type="text" value="1.00"/> <br />
-                                <br />
-                            </p>
-                            <p>
-                                <label for="tokenAmount" class="tokenAmount"> Token Amount     </label>
-                                <input id="tokenAmount" name="tokenAmount" type="text" readonly /> <br />
-                                <br />
-                            </p>                            
-                            <p>
-                                <label for="xpxAddress" class="xpxAddress"> XPX Wallet</label>
-                                <input id="xpxAddress" name="xpxAddress" type="text" />
-                                <br />
-                            </p>
-                            <h1></h1>
-                            <p class="login button">
-                                <input type="submit" value="Submit" />
-                            </p>
-                        </form>
-                    </div>
-
-                </div>
+                    <p>
+                        <label for="fullName" class="fullName" data-icon="u" > Full Name </label>
+                        <input id="fullName" name="fullName" required="required" type="text" placeholder="yourusername"/>
+                    </p>
+                    <p>
+                        <label for="email" class="email" data-icon="u" > Email </label>
+                        <input id="email" name="email" required="required" type="text" placeholder="youremail@mail.com"/>
+                    </p>
+                    <p>
+                        <label for="tokenName" class="tokenName"> Token </label>
+                        <select name="tokenName">
+                            <option value="eth" selected>ETH</option>
+                            <option value="btc">BTC</option>
+                            <option value="usdt-omni">USDT (Omni network)</option>
+                            <option value="usdt-eth">USDT (Eth network)</option>
+                        </select>
+                    </p>
+                    <p>
+                        <label for="xpxAmount" class="xpxAmount"> XPX Amount     </label>
+                        <input id="xpxAmount" name="xpxAmount" type="text" value="1.00"/> <br />
+                        <br />
+                    </p>
+                    <p>
+                        <label for="tokenAmount" class="tokenAmount"> Token Amount     </label>
+                        <input id="tokenAmount" name="tokenAmount" type="text" readonly /> <br />
+                        <br />
+                    </p>
+                    <p>
+                        <label for="xpxAddress" class="xpxAddress"> XPX Wallet</label>
+                        <input id="xpxAddress" name="xpxAddress" type="text" />
+                        <br />
+                    </p>
+                    <h1></h1>
+                    <p class="login button">
+                        <input type="submit" value="Submit" />
+                    </p>
+                </form>
             </div>
-        </section>
-    </body>
+
+        </div>
+    </div>
+</section>
+</body>
 </html>

@@ -42,7 +42,7 @@ public class EscrowBuilder {
         tokenAmount = (row.getXpxPrice() * row.getXpxAmount()) / row.getTokenPrice();
         row.setTokenAmount(tokenAmount);
         row.setStatus(CONSTS.STATUS_WAITING_PAY);
-        if (tokenName.equalsIgnoreCase("eth")) {
+        if (tokenName.equalsIgnoreCase("eth") || tokenName.equalsIgnoreCase("usdt-eth")) {
             try {
                 String seed = UUID.randomUUID().toString();
                 ECKeyPair ecKeyPair = Keys.createEcKeyPair();
@@ -60,7 +60,7 @@ public class EscrowBuilder {
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
-        } else if (tokenName.equalsIgnoreCase("btc")) {
+        } else if (tokenName.equalsIgnoreCase("btc") || tokenName.equalsIgnoreCase("usdt-omni")) {
             String seed = UUID.randomUUID().toString();
             NetworkParameters netParams = NetworkParameters.fromID(NetworkParameters.ID_MAINNET);
             // create a new EC Key ...

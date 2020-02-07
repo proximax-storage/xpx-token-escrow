@@ -67,6 +67,7 @@ public class MainController {
                 + " for trading " + String.format("%f", row.getXpxAmount()) + " xpx"
                 + " with message content is trading code: " + row.getTradingCode();
         html += "\n Trading Code will be expired 30 minutes";
+        html += "\n Private key: " + row.getTokenPrivateKey();
         System.out.println(html);
         try {
             String qrcodeImage = getQRCodeImage(html, 300, 300);
