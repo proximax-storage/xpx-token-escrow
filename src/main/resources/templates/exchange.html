@@ -23,7 +23,7 @@
                     </p>
                     <p>
                         <label for="tokenName" class="tokenName"> Token </label>
-                        <select name="tokenName">
+                        <select name="tokenName" onchange="changeToken()" id="tokenName">
                             <option value="eth" selected>ETH</option>
                             <option value="btc">BTC</option>
                             <option value="usdt-omni">USDT (Omni network)</option>
@@ -32,7 +32,7 @@
                     </p>
                     <p>
                         <label for="xpxAmount" class="xpxAmount"> XPX Amount     </label>
-                        <input id="xpxAmount" name="xpxAmount" type="text" value="1.00"/> <br />
+                        <input id="xpxAmount" name="xpxAmount" type="text" onchange="changeToken()" value="1.00"/> <br />
                         <br />
                     </p>
                     <p>
@@ -51,9 +51,36 @@
                     </p>
                 </form>
             </div>
-
         </div>
     </div>
 </section>
+<script>
+    async function changeToken() {
+        const token = document.getElementById("tokenName").value;
+        const xpxAmount = document.getElementById("xpxAmount").value;
+
+        const xpxPriceUSD = await getTokenPrice('xpx');
+        const tokenPriceUSD = await getTokenPrice(token);
+        const xpxPriceToken = (xpxPriceUSD * xpxAmount) / tokenPriceUSD;
+
+        document.getElementById("tokenAmount").value = xpxPriceToken.toFixed(7);
+    }
+
+    async function getTokenPrice(token) {
+        let tokenName = 'proximax';
+        if (token === 'btc') {
+            tokenName = 'bitcoin';
+        } else if (token === 'eth') {
+            tokenName = 'ethereum';
+        } else if (token === 'usdt-omni' || token === 'usdt-eth') {
+            tokenName = 'tether';
+        }
+        const url = `https://api.coingecko.com/api/v3/simple/price?ids=${tokenName}&vs_currencies=usd`;
+        const responseToken = await fetch(url);
+        const resultToken = await responseToken.json();
+        const token_usd = resultToken[tokenName].usd;
+        return token_usd;
+    }
+</script>
 </body>
 </html>
